@@ -1,5 +1,6 @@
 package org.oxerr.youzan.dto;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.Map;
@@ -14,55 +15,253 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 /**
  * <a href="http://open.youzan.com/structparam?struct=GoodsDetail">商品数据结构</a>.
  */
-public class GoodsDetail extends BaseObject {
+public class GoodsDetail implements Serializable {
 
 	private static final long serialVersionUID = 2016061901L;
 
+	/**
+	 * 是否为虚拟商品
+	 */
 	private Boolean isVirtual;
+
+	/**
+	 * 商品定时上架（定时开售）的时间。没设置则为空
+	 */
 	private Instant autoListingTime;
+
+	/**
+	 * 适合wap应用的商品详情url
+	 */
 	private String detailUrl;
+
+	/**
+	 * 运费（针对“统一运费”），格式：5.00；单位：元；精确到：分。
+	 */
 	private BigDecimal postFee;
+
+	/**
+	 * Sku列表
+	 */
 	private GoodsSku[] skus;
+
+	/**
+	 * 商品二维码列表。
+	 * 注：仅 kdt.item.get 和 kdt.items.custom.get 接口会返回该字段。
+	 */
 	private GoodsQrcode[] itemQrcodes;
+
+	/**
+	 * 可购买该商品的会员等级id列表
+	 */
 	private String[] umpLevel;
+
+	/**
+	 * 商品推广栏目id，可参考API：kdt.itemcategories.promotions.get
+	 */
 	private Long promotionCid;
+
+	/**
+	 * 每人限购多少件。0代表无限购，默认为0。
+	 */
 	private Long buyQuota;
+
+	/**
+	 * 商品类型。
+	 * <ul>
+	 * <li>0：普通商品</li>
+	 * <li>10：分销商品</li>
+	 * </ul>
+	 */
 	private Integer itemType;
+
+	/**
+	 * 商品数量
+	 */
 	private Long num;
+
+	/**
+	 * 运费（针对“运费模版”），格式：5.00；单位：元；精确到：分。
+	 * 若存在运费区间，中间用逗号隔开，如 “5.00,9.00”。
+	 */
 	private String deliveryTemplateFee;
+
+	/**
+	 * 模板名称
+	 */
 	private String templateTitle;
+
+	/**
+	 * 商品数字编号
+	 */
 	private Long numIid;
+
+	/**
+	 * 商品标题
+	 */
 	private String title;
+
+	/**
+	 * 商品货号（商家为商品设置的外部编号，可与商家外部系统对接）
+	 */
 	private String outerId;
+
+	/**
+	 * 是否参加会员折扣
+	 */
 	private Boolean joinLevelDiscount;
+
+	/**
+	 * 是否设置商品购买权限
+	 */
 	private Integer purchaseRight;
+
+	/**
+	 * 可购买该商品的用户标签名称列表
+	 */
 	private String[] umpTagsText;
+
+	/**
+	 * 商品价格，格式：5.00；单位：元；精确到：分。
+	 */
 	private BigDecimal price;
+
+	/**
+	 * 商品别称
+	 */
 	private String alias;
+
+	/**
+	 * 运费类型。
+	 * <ul>
+	 * <li>1：统一邮费；</li>
+	 * <li>2：运费模版;</li>
+	 * </ul>
+	 */
 	private Integer postType;
+
+	/**
+	 * 可购买该商品的会员等级名称列表
+	 */
 	private String[] umpLevelText;
+
+	/**
+	 * 运费模版名称
+	 */
 	private String deliveryTemplateName;
+
+	/**
+	 * 商品序号
+	 */
 	private Long order;
+
+	/**
+	 * 可购买该商品的用户标签id列表
+	 */
 	private String[] umpTags;
+
+	/**
+	 * 商品标签id串，结构如：1234,1342,...，可参考API：kdt.itemcategories.tags.get
+	 */
 	private String tagIds;
+
+	/**
+	 * 是否是供货商商品。
+	 */
 	private Boolean isSupplierItem;
+
+	/**
+	 * 商品点赞数
+	 */
 	private Long likeCount;
+
+	/**
+	 * 商品标签数据结构
+	 */
 	private GoodsTag[] itemTags;
+
+	/**
+	 * 商品的发布时间
+	 */
+	private Instant created;
+
+	/**
+	 * 商品图片列表
+	 */
 	private GoodsImage[] itemImgs;
+
+	/**
+	 * 商品上架状态。true 为已上架，false 为已下架
+	 */
 	private Boolean isListing;
+
+	/**
+	 * 是否为二手商品
+	 */
 	private Boolean isUsed;
+
+	/**
+	 * 商品销量
+	 */
 	private Long soldNum;
+
+	/**
+	 * 商品外部购买链接
+	 */
 	private String outerBuyUrl;
+
+	/**
+	 * 是否为二手商品
+	 */
 	private String productType;
+
+	/**
+	 * 分享出去的商品详情url
+	 */
 	private String shareUrl;
+
+	/**
+	 * 商品主图片缩略图地址
+	 */
 	private String picThumbUrl;
+
+	/**
+	 * 运费模版id
+	 */
 	private Long deliveryTemplateId;
+
+	/**
+	 * 商品是否锁定。true 为已锁定，false 为未锁定
+	 */
 	private Boolean isLock;
+
+	/**
+	 * 商品留言
+	 */
 	private Map<String, String>[] messages;
+
+	/**
+	 * 模板id
+	 */
 	private Long templateId;
+
+	/**
+	 * 显示在“原价”一栏中的信息
+	 */
 	private String originPrice;
+
+	/**
+	 * 商品主图片地址
+	 */
 	private String picUrl;
+
+	/**
+	 * 商品分类的叶子类目id，可参考API：kdt.itemcategories.get
+	 */
 	private Long cid;
+
+	/**
+	 * 商品描述
+	 */
 	private String desc;
 
 	public GoodsDetail(
@@ -118,7 +317,6 @@ public class GoodsDetail extends BaseObject {
 		@JsonProperty("cid") Long cid,
 		@JsonProperty("desc") String desc
 	) {
-		super(created);
 		this.isVirtual = isVirtual;
 		this.autoListingTime = autoListingTime;
 		this.detailUrl = detailUrl;
@@ -149,6 +347,7 @@ public class GoodsDetail extends BaseObject {
 		this.isSupplierItem = isSupplierItem;
 		this.likeCount = likeCount;
 		this.itemTags = itemTags;
+		this.created = created;
 		this.itemImgs = itemImgs;
 		this.isListing = isListing;
 		this.isUsed = isUsed;
@@ -405,6 +604,14 @@ public class GoodsDetail extends BaseObject {
 
 	public void setItemTags(GoodsTag[] itemTags) {
 		this.itemTags = itemTags;
+	}
+
+	public Instant getCreated() {
+		return created;
+	}
+
+	public void setCreated(Instant created) {
+		this.created = created;
 	}
 
 	public GoodsImage[] getItemImgs() {

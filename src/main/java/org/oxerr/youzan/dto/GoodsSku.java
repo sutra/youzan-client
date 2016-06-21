@@ -1,5 +1,6 @@
 package org.oxerr.youzan.dto;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.Instant;
 
@@ -11,19 +12,84 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 /**
  * <a href="http://open.youzan.com/structparam?struct=GoodsSku">Sku数据结构</a>.
  */
-public class GoodsSku extends BaseObject {
+public class GoodsSku implements Serializable {
 
 	private static final long serialVersionUID = 2016061901L;
 
+	/**
+	 * Sku所对应的销售属性的中文名字串，
+	 * 格式如：pid1:vid1:pid_name1:vid_name1;pid2:vid2:pid_name2:vid_name2……
+	 */
 	private String propertiesName;
+
+	/**
+	 * Sku在系统中的唯一编号，可以在开发者的系统中用作 Sku 的唯一ID，但不能用于调用接口
+	 */
 	private String skuUniqueCode;
+
+	/**
+	 * 商品在付款减库存的状态下，该Sku上未付款的订单数量
+	 */
 	private Long withHoldQuantity;
+
+	/**
+	 * 属于这个Sku的商品的数量
+	 */
 	private Long quantity;
+
+	/**
+	 * 商品的这个Sku的价格；精确到2位小数；单位：元。
+	 */
 	private BigDecimal price;
+
+	/**
+	 * Sku创建日期，时间格式：yyyy-MM-dd HH:mm:ss
+	 */
+	private Instant created;
+
+	/**
+	 * Sku所对应的销售属性的Json字符串（需另行解析），
+	 * 该字段内容与properties_name字段除了格式不一样，内容完全一致。
+	 * 由于产品规格信息难以避免涉及到‘:’、‘,’、‘;’这些与解析规则冲突的字符，所以增加该字段。
+	 * 格式定义：
+	 * <pre>
+	 * [
+	 * 	{
+	 * 		"kid": "20000",
+	 * 		"vid": "3275069",
+	 * 		"k": "品牌",
+	 * 		"v": "盈讯"
+	 * 	},
+	 * 	{
+	 * 		"kid": "1753146",
+	 *		"vid": "3485013",
+	 *		"k": "型号",
+	 *		"v": "F908"
+	 *	}
+	 *	......
+	 * ]
+	 * </pre>
+	 */
 	private String propertiesNameJson;
+
+	/**
+	 * Sku最后修改日期，时间格式：yyyy-MM-dd HH:mm:ss
+	 */
 	private Instant modified;
+
+	/**
+	 * Sku的ID，sku_id 在系统里并不是唯一的，结合商品ID一起使用才是唯一的。
+	 */
 	private Long skuId;
+
+	/**
+	 * Sku所属商品的数字编号
+	 */
 	private Long numIid;
+
+	/**
+	 * 商家编码（商家为Sku设置的外部编号）
+	 */
 	private String outerId;
 
 	public GoodsSku(
@@ -43,12 +109,12 @@ public class GoodsSku extends BaseObject {
 		@JsonProperty("num_iid") final Long numIid,
 		@JsonProperty("outer_id") final String outerId
 	) {
-		super(created);
 		this.propertiesName = propertiesName;
 		this.skuUniqueCode = skuUniqueCode;
 		this.withHoldQuantity = withHoldQuantity;
 		this.quantity = quantity;
 		this.price = price;
+		this.created = created;
 		this.propertiesNameJson = propertiesNameJson;
 		this.modified = modified;
 		this.skuId = skuId;
@@ -94,6 +160,14 @@ public class GoodsSku extends BaseObject {
 
 	public void setPrice(BigDecimal price) {
 		this.price = price;
+	}
+
+	public Instant getCreated() {
+		return created;
+	}
+
+	public void setCreated(Instant created) {
+		this.created = created;
 	}
 
 	public String getPropertiesNameJson() {

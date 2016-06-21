@@ -7,6 +7,9 @@ import org.oxerr.youzan.dto.Shop;
 
 import com.kdt.api.KdtApiClient;
 
+/**
+ * <a href="http://open.youzan.com/api#2">店铺接口</a>.
+ */
 public class ShopService extends BaseService {
 
 	public ShopService(KdtApiClient client) {

@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
-import java.util.Date;
 import java.util.TimeZone;
 
 import com.fasterxml.jackson.core.JsonParser;
@@ -23,17 +22,15 @@ public class InstantDeserializer extends JsonDeserializer<Instant> {
 	@Override
 	public Instant deserialize(JsonParser jp, DeserializationContext ctxt)
 			throws IOException, JsonProcessingException {
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		final SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		sdf.setTimeZone(TimeZone.getTimeZone("Asia/Shanghai"));
-		Date date;
 		try {
 			synchronized (sdf) {
-				date = sdf.parse(jp.getText());
+				return sdf.parse(jp.getText()).toInstant();
 			}
 		} catch (ParseException e) {
-			throw new RuntimeException(e);
+			return null;
 		}
-		return date.toInstant();
 	}
 
 }

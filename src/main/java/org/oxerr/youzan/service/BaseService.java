@@ -14,9 +14,12 @@ import org.oxerr.youzan.dto.Shop;
 import org.oxerr.youzan.dto.response.ItemResponse;
 import org.oxerr.youzan.dto.response.ItemsResponse;
 import org.oxerr.youzan.dto.response.Response;
+import org.oxerr.youzan.dto.response.SelfFetchTradeResponse;
 import org.oxerr.youzan.dto.response.SkuResponse;
 import org.oxerr.youzan.dto.response.SkusResponse;
 import org.oxerr.youzan.dto.response.SuccessResponse;
+import org.oxerr.youzan.dto.response.TradeResponse;
+import org.oxerr.youzan.dto.response.TradesResponse;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
@@ -38,6 +41,11 @@ abstract class BaseService {
 	protected static final TypeReference<Response<SkusResponse>> SKUS_RESPONSE_TYPE_REF = new TypeReference<Response<SkusResponse>>() {};
 
 	protected static final TypeReference<Response<Shop>> SHOP_RESPONSE_TYPE_REF = new TypeReference<Response<Shop>>() {};
+
+	protected static final TypeReference<Response<TradeResponse>> TRADE_RESPONSE_TYPE_REF = new TypeReference<Response<TradeResponse>>() {};
+	protected static final TypeReference<Response<TradesResponse>> TRADES_RESPONSE_TYPE_REF = new TypeReference<Response<TradesResponse>>() {};
+
+	protected static final TypeReference<Response<SelfFetchTradeResponse>> SELF_FETCH_TRADE_RESPONSE_TYPE_REF = new TypeReference<Response<SelfFetchTradeResponse>>() {};
 
 	protected final KdtApiClient client;
 	protected final ObjectMapper mapper;

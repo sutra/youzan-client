@@ -4,13 +4,33 @@ import java.io.Serializable;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**
+ * <a href=
+ * "http://open.youzan.com/apidetail?method=kdt.shop.basic.get&apiId=6669">
+ * 店铺基本信息</a>.
+ */
 public class Shop implements Serializable {
 
 	private static final long serialVersionUID = 2016062001L;
 
+	/**
+	 * 店铺ID
+	 */
 	private Long sid;
+
+	/**
+	 * 店铺名称
+	 */
 	private String name;
+
+	/**
+	 * 店铺LOGO
+	 */
 	private String logo;
+
+	/**
+	 * 店铺地址
+	 */
 	private String url;
 
 	public Shop(

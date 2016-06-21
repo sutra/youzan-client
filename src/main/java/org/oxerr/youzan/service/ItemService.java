@@ -38,9 +38,13 @@ public class ItemService extends BaseService {
 	 */
 	public boolean deleteItem(@Nonnull Long numIid)
 			throws IOException, YouzanException {
-		final SuccessResponse successResponse = readValue("kdt.item.delete",
-			new ParamsBuilder(1).put("num_iid", numIid).getParams(),
-			SUCCESS_RESPONSE_TYPE_REF);
+		final SuccessResponse successResponse = readValue(
+			"kdt.item.delete",
+			new ParamsBuilder(1)
+				.put("num_iid", numIid)
+				.getParams(),
+			SUCCESS_RESPONSE_TYPE_REF
+		);
 		return successResponse.isSuccess();
 	}
 
@@ -55,10 +59,14 @@ public class ItemService extends BaseService {
 	 */
 	public GoodsDetail updateItem(GoodsDetail item, String fields)
 			throws IOException, YouzanException {
-		final ItemResponse itemResponse = readValue("kdt.item.update",
-			new ParamsBuilder().putAll(item.toParams()).put("fields", fields)
+		final ItemResponse itemResponse = readValue(
+			"kdt.item.update",
+			new ParamsBuilder()
+				.putAll(item.toParams())
+				.put("fields", fields)
 				.getParams(),
-			ITEM_RESPONSE_TYPE_REF);
+			ITEM_RESPONSE_TYPE_REF
+		);
 		return itemResponse.getItem();
 	}
 
@@ -78,10 +86,15 @@ public class ItemService extends BaseService {
 			throw new IllegalArgumentException("参数 num_iid 和 alias 必须选其一");
 		}
 
-		final ItemResponse itemResponse = readValue("kdt.item.get",
-			new ParamsBuilder(3).put("num_iid", numIid).put("fields", fields)
-				.put("alias", alias).getParams(),
-			ITEM_RESPONSE_TYPE_REF);
+		final ItemResponse itemResponse = readValue(
+			"kdt.item.get",
+			new ParamsBuilder(3)
+				.put("num_iid", numIid)
+				.put("fields", fields)
+				.put("alias", alias)
+				.getParams(),
+			ITEM_RESPONSE_TYPE_REF
+		);
 		return itemResponse.getItem();
 	}
 
@@ -96,12 +109,14 @@ public class ItemService extends BaseService {
 	 */
 	public GoodsDetail listingItem(@Nonnull Long numIid,
 			@Nullable String fields) throws IOException, YouzanException {
-		final ItemResponse itemResponse = readValue("kdt.item.update.listing",
+		final ItemResponse itemResponse = readValue(
+			"kdt.item.update.listing",
 			new ParamsBuilder(2)
 				.put("num_iid", numIid)
 				.put("fields", fields)
 				.getParams(),
-			ITEM_RESPONSE_TYPE_REF);
+			ITEM_RESPONSE_TYPE_REF
+		);
 		return itemResponse.getItem();
 	}
 
@@ -116,12 +131,14 @@ public class ItemService extends BaseService {
 	 */
 	public GoodsDetail delistingItem(@Nonnull Long numIid,
 			@Nullable String fields) throws IOException, YouzanException {
-		final ItemResponse itemResponse = readValue("kdt.item.update.delisting",
+		final ItemResponse itemResponse = readValue(
+			"kdt.item.update.delisting",
 			new ParamsBuilder(2)
 				.put("num_iid", numIid)
 				.put("fields", fields)
 				.getParams(),
-			ITEM_RESPONSE_TYPE_REF);
+			ITEM_RESPONSE_TYPE_REF
+		);
 		return itemResponse.getItem();
 	}
 
@@ -143,7 +160,8 @@ public class ItemService extends BaseService {
 						.map(n -> n.toString())
 						.collect(Collectors.toList())))
 				.getParams(),
-			SUCCESS_RESPONSE_TYPE_REF);
+			SUCCESS_RESPONSE_TYPE_REF
+		);
 		return successResponse.isSuccess();
 	}
 
@@ -165,7 +183,8 @@ public class ItemService extends BaseService {
 						.map(n -> n.toString())
 						.collect(Collectors.toList())))
 				.getParams(),
-			SUCCESS_RESPONSE_TYPE_REF);
+			SUCCESS_RESPONSE_TYPE_REF
+		);
 		return successResponse.isSuccess();
 	}
 
@@ -181,12 +200,15 @@ public class ItemService extends BaseService {
 	 */
 	public GoodsSku[] getSkus(@Nonnull String outerId, @Nonnull Long numIid,
 			@Nullable String fields) throws IOException, YouzanException {
-		final SkusResponse skusResponse = readValue("kdt.skus.custom.get",
+		final SkusResponse skusResponse = readValue(
+			"kdt.skus.custom.get",
 			new ParamsBuilder(3)
 				.put("outer_id", outerId)
 				.put("num_iid", numIid)
 				.put("fields", fields)
-				.getParams(), SKUS_RESPONSE_TYPE_REF);
+				.getParams(),
+			SKUS_RESPONSE_TYPE_REF
+		);
 		return skusResponse.getSkus();
 	}
 
@@ -207,7 +229,8 @@ public class ItemService extends BaseService {
 			@Nullable Integer pageSize, @Nullable Long pageNo,
 			@Nullable String orderBy, @Nullable String fields)
 					throws IOException, YouzanException {
-		final ItemsResponse itemsResponse = readValue("kdt.items.onsale.get",
+		final ItemsResponse itemsResponse = readValue(
+			"kdt.items.onsale.get",
 			new ParamsBuilder(6)
 				.put("tag_id", tagId)
 				.put("q", q)
@@ -215,7 +238,9 @@ public class ItemService extends BaseService {
 				.put("page_no", pageNo)
 				.put("order_by", orderBy)
 				.put("fields", fields)
-				.getParams(), ITEMS_RESPONSE_TYPE_REF);
+				.getParams(),
+			ITEMS_RESPONSE_TYPE_REF
+		);
 		return itemsResponse.getItems();
 	}
 
@@ -245,7 +270,8 @@ public class ItemService extends BaseService {
 				.put("order_by", orderBy)
 				.put("fields", fields)
 				.getParams(),
-			ITEMS_RESPONSE_TYPE_REF);
+			ITEMS_RESPONSE_TYPE_REF
+		);
 		return itemsResponse.getItems();
 	}
 
@@ -260,9 +286,14 @@ public class ItemService extends BaseService {
 	 */
 	public GoodsDetail[] getItems(@Nonnull String outerId,
 			@Nullable String fields) throws IOException, YouzanException {
-		final ItemsResponse itemsResponse = readValue("kdt.items.custom.get",
-			new ParamsBuilder(2).put("outer_id", outerId)
-				.put("fields", fields).getParams(), ITEMS_RESPONSE_TYPE_REF);
+		final ItemsResponse itemsResponse = readValue(
+			"kdt.items.custom.get",
+			new ParamsBuilder(2)
+				.put("outer_id", outerId)
+				.put("fields", fields)
+				.getParams(),
+			ITEMS_RESPONSE_TYPE_REF
+		);
 		return itemsResponse.getItems();
 	}
 
@@ -281,7 +312,8 @@ public class ItemService extends BaseService {
 	public GoodsSku updateSku(@Nonnull Long skuId, @Nullable Long quantity,
 			@Nullable BigDecimal price, @Nullable String outerId,
 			@Nonnull Long numIid) throws IOException, YouzanException {
-		final SkuResponse skuResponse = readValue("kdt.item.sku.update",
+		final SkuResponse skuResponse = readValue(
+			"kdt.item.sku.update",
 			new ParamsBuilder(5)
 				.put("sku_id", skuId)
 				.put("quantity", quantity)
@@ -289,7 +321,8 @@ public class ItemService extends BaseService {
 				.put("outer_id", outerId)
 				.put("num_iid", numIid)
 				.getParams(),
-			SKU_RESPONSE_TYPE_REF);
+			SKU_RESPONSE_TYPE_REF
+		);
 		return skuResponse.getSku();
 	}
 
@@ -304,9 +337,14 @@ public class ItemService extends BaseService {
 	 */
 	public GoodsDetail addItem(GoodsDetail item, String fields)
 			throws IOException, YouzanException {
-		final ItemResponse itemResponse = readValue("kdt.item.add",
-			new ParamsBuilder().putAll(item.toParams()).put("fields", fields)
-				.getParams(), ITEM_RESPONSE_TYPE_REF);
+		final ItemResponse itemResponse = readValue(
+			"kdt.item.add",
+			new ParamsBuilder()
+				.putAll(item.toParams())
+				.put("fields", fields)
+				.getParams(),
+			ITEM_RESPONSE_TYPE_REF
+		);
 		return itemResponse.getItem();
 	}
 
