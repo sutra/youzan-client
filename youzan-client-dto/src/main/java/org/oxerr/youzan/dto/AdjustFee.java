@@ -30,6 +30,9 @@ public class AdjustFee implements Serializable {
 	 */
 	private BigDecimal postChange;
 
+	public AdjustFee() {
+	}
+
 	public AdjustFee(
 		@JsonProperty("change") BigDecimal change,
 		@JsonProperty("pay_change") BigDecimal payChange,

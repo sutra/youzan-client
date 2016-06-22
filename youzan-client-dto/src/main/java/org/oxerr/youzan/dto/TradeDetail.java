@@ -357,6 +357,9 @@ public class TradeDetail implements Serializable {
 	 */
 	private String outerTid;
 
+	public TradeDetail() {
+	}
+
 	public TradeDetail(
 		@JsonProperty("consign_time")
 		@JsonDeserialize(using = InstantDeserializer.class)

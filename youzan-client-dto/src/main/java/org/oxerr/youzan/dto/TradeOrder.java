@@ -131,6 +131,9 @@ public class TradeOrder implements Serializable {
 	 */
 	private String sellerNick;
 
+	public TradeOrder() {
+	}
+
 	public TradeOrder(
 		@JsonProperty("outer_sku_id") String outerSkuId,
 		@JsonProperty("sku_unique_code") String skuUniqueCode,

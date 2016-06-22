@@ -33,6 +33,9 @@ public class Shop implements Serializable {
 	 */
 	private String url;
 
+	public Shop() {
+	}
+
 	public Shop(
 		@JsonProperty("sid") Long sid,
 		@JsonProperty("name") String name,

@@ -45,6 +45,9 @@ public class GoodsImage implements Serializable {
 	 */
 	private String combine;
 
+	public GoodsImage() {
+	}
+
 	public GoodsImage(
 		@JsonProperty("thumbnail") String thumbnail,
 		@JsonProperty("created")

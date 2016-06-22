@@ -92,6 +92,9 @@ public class GoodsSku implements Serializable {
 	 */
 	private String outerId;
 
+	public GoodsSku() {
+	}
+
 	public GoodsSku(
 		@JsonProperty("properties_name") final String propertiesName,
 		@JsonProperty("sku_unique_code") final String skuUniqueCode,

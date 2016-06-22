@@ -70,6 +70,9 @@ public class GoodsQrcode implements Serializable {
 	 */
 	private String desc;
 
+	public GoodsQrcode() {
+	}
+
 	public GoodsQrcode(
 		@JsonProperty("created")
 		@JsonDeserialize(using = InstantDeserializer.class)

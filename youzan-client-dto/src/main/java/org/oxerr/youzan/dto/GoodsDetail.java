@@ -7,7 +7,6 @@ import java.util.Map;
 
 import org.oxerr.youzan.dto.deserializer.EpochSecondStringDeserializer;
 import org.oxerr.youzan.dto.deserializer.InstantDeserializer;
-import org.oxerr.youzan.service.ParamsBuilder;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -263,6 +262,9 @@ public class GoodsDetail implements Serializable {
 	 * 商品描述
 	 */
 	private String desc;
+
+	public GoodsDetail() {
+	}
 
 	public GoodsDetail(
 		@JsonProperty("is_virtual") Boolean isVirtual,
@@ -740,42 +742,6 @@ public class GoodsDetail implements Serializable {
 
 	public void setDesc(String desc) {
 		this.desc = desc;
-	}
-
-	public Map<String, String> toParams() {
-		return new ParamsBuilder()
-			.put("ump_tags", this.getUmpTags())
-			.put("ump_level", this.getUmpLevel())
-			.put("title", this.getTitle())
-			.put("template_id", this.getTemplateId())
-			.put("tag_ids", this.getTagIds())
-			.put("skus_with_json", this.getSkus())
-			// .put("sku_quantities", "TODO")
-			// .put("sku_properties", "TODO")
-			// .put("sku_prices", "TODO")
-			// .put("sku_outer_ids", "TODO")
-			.put("quantity", this.getNum())
-			.put("purchase_right", this.getPurchaseRight())
-			.put("promotion_cid", this.getPromotionCid())
-			.put("price", this.getPrice())
-			.put("post_fee", this.getPostFee())
-			.put("outer_id", this.getOuterId())
-			.put("origin_price", this.getOriginPrice())
-			.put("num_iid", this.getNumIid())
-			// .put("messages", "TODO")
-			// .put("keep_item_img_ids", "TODO")
-			.put("join_level_discount", this.getJoinLevelDiscount())
-			.put("is_used", this.getIsUsed())
-			// .put("images", "TODO")
-			// .put("image_ids", "TODO")
-			// .put("hide_quantity", "TODO")
-			.put("desc", this.getDesc())
-			.put("delivery_template_id", this.getDeliveryTemplateId())
-			.put("cid", this.getCid())
-			.put("buy_url", this.getOuterBuyUrl())
-			.put("buy_quota", this.getBuyQuota())
-			.put("auto_listing_time", this.getAutoListingTime())
-			.getParams();
 	}
 
 }

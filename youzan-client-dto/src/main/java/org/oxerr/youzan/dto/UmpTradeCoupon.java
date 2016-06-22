@@ -57,6 +57,9 @@ public class UmpTradeCoupon implements Serializable {
 	 */
 	private BigDecimal discountFee;
 
+	public UmpTradeCoupon() {
+	}
+
 	public UmpTradeCoupon(
 		@JsonProperty("coupon_description") String couponDescription,
 		@JsonProperty("used_at")

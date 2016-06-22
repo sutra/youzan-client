@@ -152,6 +152,9 @@ public class TradeService extends BaseService {
 		return tradesResponse;
 	}
 
+	/**
+	 * @see #getSoldTrades(String, Integer, Long, Boolean, Instant, Instant, Instant, Instant, String, String, Long, Long, String, String, String, Integer, Long, String)
+	 */
 	public TradesResponse getSoldTrades(
 		@Nullable Integer pageSize,
 		@Nullable Long pageNo

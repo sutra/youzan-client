@@ -10,10 +10,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 /**
- * <a href="http://open.youzan.com/structparam?struct=TradePromotion">
- * 订单中使用到的优惠活动的数据结构</a>.
+ * <a href="http://open.youzan.com/structparam?struct=TradeOrderPromotion">
+ * 交易明细中的优惠信息的数据结构</a>.
  */
-public class TradePromotion implements Serializable {
+public class TradeOrderPromotion implements Serializable {
 
 	private static final long serialVersionUID = 2016062001L;
 
@@ -21,54 +21,43 @@ public class TradePromotion implements Serializable {
 	 * 优惠的类型。
 	 * 可选值：
 	 * <ul>
-	 * <li>FULLREDUCE（满减满送）</li>
-	 * <li>ORDERCASHBACK（订单返现）</li>
-	 * <li>GROUPBUYING（商品团购）</li>
-	 * <li>GROUPON（多人拼团）</li>
+	 * <li>MEMBER_CARD_DISCOUNT（会员卡折扣）</li>
+	 * <li>SCAN_DISCOUNT（扫码折扣）</li>
+	 * <li>SCAN_DECREASE（扫码减额优惠）</li>
+	 * <li>TIMELIMITED_DISCOUNT（限时折扣）</li>
 	 * </ul>
 	 */
 	private String promotionType;
 
 	/**
-	 * 使用时间
+	 * 应用优惠的时间
 	 */
-	private Instant usedAt;
+	private Instant applyAt;
 
 	/**
-	 * 该优惠活动的名称
+	 * 优惠的名称
 	 */
 	private String promotionName;
-
-	/**
-	 * 优惠使用条件说明
-	 */
-	private String promotionCondition;
-
-	/**
-	 * 该优惠活动的ID
-	 */
-	private Long promotionId;
 
 	/**
 	 * 优惠的金额，单位：元，精确到小数点后两位。
 	 */
 	private BigDecimal discountFee;
 
-	public TradePromotion(
+	public TradeOrderPromotion() {
+	}
+
+	public TradeOrderPromotion(
 		@JsonProperty("promotion_type") String promotionType,
-		@JsonProperty("used_at")
+		@JsonProperty("apply_at")
 		@JsonDeserialize(using = InstantDeserializer.class)
-		Instant usedAt,
+		Instant applyAt,
 		@JsonProperty("promotion_name") String promotionName,
-		@JsonProperty("promotion_condition") String promotionCondition,
-		@JsonProperty("promotion_id") Long promotionId,
 		@JsonProperty("discount_fee") BigDecimal discountFee
 	) {
 		this.promotionType = promotionType;
-		this.usedAt = usedAt;
+		this.applyAt = applyAt;
 		this.promotionName = promotionName;
-		this.promotionCondition = promotionCondition;
-		this.promotionId = promotionId;
 		this.discountFee = discountFee;
 	}
 
@@ -80,12 +69,12 @@ public class TradePromotion implements Serializable {
 		this.promotionType = promotionType;
 	}
 
-	public Instant getUsedAt() {
-		return usedAt;
+	public Instant getApplyAt() {
+		return applyAt;
 	}
 
-	public void setUsedAt(Instant usedAt) {
-		this.usedAt = usedAt;
+	public void setApplyAt(Instant applyAt) {
+		this.applyAt = applyAt;
 	}
 
 	public String getPromotionName() {
@@ -94,22 +83,6 @@ public class TradePromotion implements Serializable {
 
 	public void setPromotionName(String promotionName) {
 		this.promotionName = promotionName;
-	}
-
-	public String getPromotionCondition() {
-		return promotionCondition;
-	}
-
-	public void setPromotionCondition(String promotionCondition) {
-		this.promotionCondition = promotionCondition;
-	}
-
-	public Long getPromotionId() {
-		return promotionId;
-	}
-
-	public void setPromotionId(Long promotionId) {
-		this.promotionId = promotionId;
 	}
 
 	public BigDecimal getDiscountFee() {

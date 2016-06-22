@@ -22,6 +22,9 @@ public class TradeBuyerMessage implements Serializable {
 	 */
 	private String content;
 
+	public TradeBuyerMessage() {
+	}
+
 	public TradeBuyerMessage(
 		@JsonProperty("title") String title,
 		@JsonProperty("content") String content

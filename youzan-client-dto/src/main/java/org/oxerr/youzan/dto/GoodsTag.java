@@ -55,6 +55,9 @@ public class GoodsTag implements Serializable {
 	 */
 	private String desc;
 
+	public GoodsTag() {
+	}
+
 	public GoodsTag(
 		@JsonProperty("created")
 		@JsonDeserialize(using = InstantDeserializer.class)

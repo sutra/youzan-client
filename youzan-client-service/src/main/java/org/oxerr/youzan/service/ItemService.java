@@ -62,7 +62,7 @@ public class ItemService extends BaseService {
 		final ItemResponse itemResponse = readValue(
 			"kdt.item.update",
 			new ParamsBuilder()
-				.putAll(item.toParams())
+				.putAll(ParamsAdapter.toParams(item))
 				.put("fields", fields)
 				.getParams(),
 			ITEM_RESPONSE_TYPE_REF
@@ -340,7 +340,7 @@ public class ItemService extends BaseService {
 		final ItemResponse itemResponse = readValue(
 			"kdt.item.add",
 			new ParamsBuilder()
-				.putAll(item.toParams())
+				.putAll(ParamsAdapter.toParams(item))
 				.put("fields", fields)
 				.getParams(),
 			ITEM_RESPONSE_TYPE_REF

@@ -65,6 +65,9 @@ public class TradeFetch implements Serializable {
 	 */
 	private Instant fetchTime;
 
+	public TradeFetch() {
+	}
+
 	public TradeFetch(
 		@JsonProperty("fetcher_name") String fetcherName,
 		@JsonProperty("shop_state") String shopState,
