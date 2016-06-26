@@ -1,5 +1,6 @@
 package org.oxerr.youzan;
 
+import org.oxerr.youzan.service.CouponService;
 import org.oxerr.youzan.service.ItemService;
 import org.oxerr.youzan.service.ShopService;
 import org.oxerr.youzan.service.TradeService;
@@ -11,6 +12,7 @@ public class YouzanClient {
 	private final KdtApiClient kdtApiClient;
 	private final ItemService itemService;
 	private final ShopService shopService;
+	private final CouponService couponService;
 	private final TradeService tradeService;
 
 	public YouzanClient(String appId, String appSecret) {
@@ -21,6 +23,7 @@ public class YouzanClient {
 		}
 		this.itemService = new ItemService(kdtApiClient);
 		this.shopService = new ShopService(kdtApiClient);
+		this.couponService = new CouponService(kdtApiClient);
 		this.tradeService = new TradeService(kdtApiClient);
 	}
 
@@ -30,6 +33,10 @@ public class YouzanClient {
 
 	public ShopService getShopService() {
 		return shopService;
+	}
+
+	public CouponService getCouponService() {
+		return couponService;
 	}
 
 	public TradeService getTradeService() {

@@ -7,11 +7,11 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import org.oxerr.youzan.YouzanException;
-import org.oxerr.youzan.dto.TradeDetail;
-import org.oxerr.youzan.dto.response.SelfFetchTradeResponse;
-import org.oxerr.youzan.dto.response.SuccessResponse;
-import org.oxerr.youzan.dto.response.TradeResponse;
-import org.oxerr.youzan.dto.response.TradesResponse;
+import org.oxerr.youzan.dto.Success;
+import org.oxerr.youzan.dto.item.SelfFetchTrade;
+import org.oxerr.youzan.dto.item.Trade;
+import org.oxerr.youzan.dto.item.TradeDetail;
+import org.oxerr.youzan.dto.item.Trades;
 
 import com.kdt.api.KdtApiClient;
 
@@ -43,7 +43,7 @@ public class TradeService extends BaseService {
 		@Nullable Long subTradePageNo,
 		@Nullable String fields
 	) throws IOException, YouzanException {
-		final TradeResponse tradeResponse = readValue(
+		final Trade tradeResponse = readValue(
 			"kdt.trade.get",
 			new ParamsBuilder(3)
 				.put("tid", tid)
@@ -105,7 +105,7 @@ public class TradeService extends BaseService {
 	 * @throws IOException indicates I/O exception.
 	 * @throws YouzanException indicates Youzan business exception.
 	 */
-	public TradesResponse getSoldTrades(
+	public Trades getSoldTrades(
 		@Nullable String version,
 		@Nullable Integer pageSize,
 		@Nullable Long pageNo,
@@ -125,7 +125,7 @@ public class TradeService extends BaseService {
 		@Nullable Long weixinUserId,
 		@Nullable String fields
 	) throws IOException, YouzanException {
-		final TradesResponse tradesResponse = readValue(
+		final Trades tradesResponse = readValue(
 			"kdt.trades.sold.get",
 			new ParamsBuilder(18)
 				.put("version", version)
@@ -155,7 +155,7 @@ public class TradeService extends BaseService {
 	/**
 	 * @see #getSoldTrades(String, Integer, Long, Boolean, Instant, Instant, Instant, Instant, String, String, Long, Long, String, String, String, Integer, Long, String)
 	 */
-	public TradesResponse getSoldTrades(
+	public Trades getSoldTrades(
 		@Nullable Integer pageSize,
 		@Nullable Long pageNo
 	) throws IOException, YouzanException {
@@ -183,7 +183,7 @@ public class TradeService extends BaseService {
 		@Nullable String flag,
 		@Nullable String fields
 	) throws IOException, YouzanException {
-		final TradeResponse tradeResponse = readValue(
+		final Trade tradeResponse = readValue(
 			"kdt.trade.memo.update",
 			new ParamsBuilder(3)
 				.put("tid", tid)
@@ -214,7 +214,7 @@ public class TradeService extends BaseService {
 		String closeReason,
 		String fields
 	) throws IOException, YouzanException {
-		final TradeResponse tradeResponse = readValue(
+		final Trade tradeResponse = readValue(
 			"kdt.trade.close",
 			new ParamsBuilder(4)
 				.put("tid", tid)
@@ -239,7 +239,7 @@ public class TradeService extends BaseService {
 	 */
 	public boolean applySelfFetchTrade(@Nonnull String code)
 			throws IOException, YouzanException {
-		final SuccessResponse successResponse = readValue(
+		final Success successResponse = readValue(
 			"kdt.trade.selffetchcode.apply",
 			new ParamsBuilder(1)
 				.put("code", code)
@@ -260,9 +260,9 @@ public class TradeService extends BaseService {
 	 * @throws IOException indicates I/O exception.
 	 * @throws YouzanException indicates Youzan business exception.
 	 */
-	public SelfFetchTradeResponse getSelfFetchTrade(@Nonnull String code,
+	public SelfFetchTrade getSelfFetchTrade(@Nonnull String code,
 			@Nullable String fields) throws IOException, YouzanException {
-		final SelfFetchTradeResponse selfFetchTradeResponse = readValue(
+		final SelfFetchTrade selfFetchTradeResponse = readValue(
 			"kdt.trade.selffetchcode.get",
 			new ParamsBuilder(2)
 				.put("code", code)
@@ -294,7 +294,7 @@ public class TradeService extends BaseService {
 	 * @throws IOException indicates I/O exception.
 	 * @throws YouzanException indicates Youzan business exception.
 	 */
-	public TradesResponse getForOuterSoldTrades(
+	public Trades getForOuterSoldTrades(
 		@Nonnull String outerType,
 		@Nonnull String outerUserId,
 		@Nullable Integer pageSize,
@@ -308,7 +308,7 @@ public class TradeService extends BaseService {
 		@Nullable String status,
 		@Nullable String fields
 	) throws IOException, YouzanException {
-		final TradesResponse tradesResponse = readValue(
+		final Trades tradesResponse = readValue(
 			"kdt.trades.sold.getforouter ",
 			new ParamsBuilder(18)
 				.put("outer_type", outerType)

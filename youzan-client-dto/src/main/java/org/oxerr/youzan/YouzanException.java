@@ -1,14 +1,14 @@
 package org.oxerr.youzan;
 
-import org.oxerr.youzan.dto.response.ErrorResponse;
+import org.oxerr.youzan.dto.Error;
 
 public class YouzanException extends Exception {
 
 	private static final long serialVersionUID = 2016061901L;
 
-	private final ErrorResponse errorResponse;
+	private final Error errorResponse;
 
-	public YouzanException(ErrorResponse errorResponse) {
+	public YouzanException(Error errorResponse) {
 		super(errorResponse.getMsg());
 		this.errorResponse = errorResponse;
 	}

@@ -3,7 +3,7 @@ package org.oxerr.youzan.service;
 import java.io.IOException;
 
 import org.oxerr.youzan.YouzanException;
-import org.oxerr.youzan.dto.Shop;
+import org.oxerr.youzan.dto.shop.Shop;
 
 import com.kdt.api.KdtApiClient;
 

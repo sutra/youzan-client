@@ -10,16 +10,21 @@ import javax.annotation.Nullable;
 
 import org.apache.http.HttpResponse;
 import org.oxerr.youzan.YouzanException;
-import org.oxerr.youzan.dto.Shop;
-import org.oxerr.youzan.dto.response.ItemResponse;
-import org.oxerr.youzan.dto.response.ItemsResponse;
-import org.oxerr.youzan.dto.response.Response;
-import org.oxerr.youzan.dto.response.SelfFetchTradeResponse;
-import org.oxerr.youzan.dto.response.SkuResponse;
-import org.oxerr.youzan.dto.response.SkusResponse;
-import org.oxerr.youzan.dto.response.SuccessResponse;
-import org.oxerr.youzan.dto.response.TradeResponse;
-import org.oxerr.youzan.dto.response.TradesResponse;
+import org.oxerr.youzan.dto.Response;
+import org.oxerr.youzan.dto.Success;
+import org.oxerr.youzan.dto.item.Item;
+import org.oxerr.youzan.dto.item.Items;
+import org.oxerr.youzan.dto.item.SelfFetchTrade;
+import org.oxerr.youzan.dto.item.Sku;
+import org.oxerr.youzan.dto.item.Skus;
+import org.oxerr.youzan.dto.item.Trade;
+import org.oxerr.youzan.dto.item.Trades;
+import org.oxerr.youzan.dto.shop.Shop;
+import org.oxerr.youzan.dto.ump.Coupon;
+import org.oxerr.youzan.dto.ump.CouponConsume;
+import org.oxerr.youzan.dto.ump.Coupons;
+import org.oxerr.youzan.dto.ump.TimelimitedDiscounts;
+import org.oxerr.youzan.dto.ump.Verifylogs;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
@@ -32,20 +37,20 @@ abstract class BaseService {
 
 	private static final HashMap<String, String> EMPTY_PARAMS = new HashMap<>(0);
 
-	protected static final TypeReference<Response<SuccessResponse>> SUCCESS_RESPONSE_TYPE_REF = new TypeReference<Response<SuccessResponse>>() {};
-
-	protected static final TypeReference<Response<ItemResponse>> ITEM_RESPONSE_TYPE_REF = new TypeReference<Response<ItemResponse>>() {};
-	protected static final TypeReference<Response<ItemsResponse>> ITEMS_RESPONSE_TYPE_REF = new TypeReference<Response<ItemsResponse>>() {};
-
-	protected static final TypeReference<Response<SkuResponse>> SKU_RESPONSE_TYPE_REF = new TypeReference<Response<SkuResponse>>() {};
-	protected static final TypeReference<Response<SkusResponse>> SKUS_RESPONSE_TYPE_REF = new TypeReference<Response<SkusResponse>>() {};
-
+	protected static final TypeReference<Response<Success>> SUCCESS_RESPONSE_TYPE_REF = new TypeReference<Response<Success>>() {};
+	protected static final TypeReference<Response<Item>> ITEM_RESPONSE_TYPE_REF = new TypeReference<Response<Item>>() {};
+	protected static final TypeReference<Response<Items>> ITEMS_RESPONSE_TYPE_REF = new TypeReference<Response<Items>>() {};
+	protected static final TypeReference<Response<Sku>> SKU_RESPONSE_TYPE_REF = new TypeReference<Response<Sku>>() {};
+	protected static final TypeReference<Response<Skus>> SKUS_RESPONSE_TYPE_REF = new TypeReference<Response<Skus>>() {};
 	protected static final TypeReference<Response<Shop>> SHOP_RESPONSE_TYPE_REF = new TypeReference<Response<Shop>>() {};
-
-	protected static final TypeReference<Response<TradeResponse>> TRADE_RESPONSE_TYPE_REF = new TypeReference<Response<TradeResponse>>() {};
-	protected static final TypeReference<Response<TradesResponse>> TRADES_RESPONSE_TYPE_REF = new TypeReference<Response<TradesResponse>>() {};
-
-	protected static final TypeReference<Response<SelfFetchTradeResponse>> SELF_FETCH_TRADE_RESPONSE_TYPE_REF = new TypeReference<Response<SelfFetchTradeResponse>>() {};
+	protected static final TypeReference<Response<Trade>> TRADE_RESPONSE_TYPE_REF = new TypeReference<Response<Trade>>() {};
+	protected static final TypeReference<Response<Trades>> TRADES_RESPONSE_TYPE_REF = new TypeReference<Response<Trades>>() {};
+	protected static final TypeReference<Response<SelfFetchTrade>> SELF_FETCH_TRADE_RESPONSE_TYPE_REF = new TypeReference<Response<SelfFetchTrade>>() {};
+	protected static final TypeReference<Response<Coupons>> COUPONS_RESPONSE_TYPE_REF = new TypeReference<Response<Coupons>>() {};
+	protected static final TypeReference<Response<CouponConsume>> COUPON_CONSUME_RESPONSE_TYPE_REF = new TypeReference<Response<CouponConsume>>() {};
+	protected static final TypeReference<Response<Verifylogs>> VERIFYLOGS_RESPONSE_TYPE_REF = new TypeReference<Response<Verifylogs>>() {};
+	protected static final TypeReference<Response<Coupon>> COUPON_RESPONSE_TYPE_REF = new TypeReference<Response<Coupon>>() {};
+	protected static final TypeReference<Response<TimelimitedDiscounts>> TIMELIMITED_DISCOUNTS_RESPONSE_TYPE_REF = new TypeReference<Response<TimelimitedDiscounts>>() {};
 
 	protected final KdtApiClient client;
 	protected final ObjectMapper mapper;

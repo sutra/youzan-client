@@ -2,7 +2,7 @@ package org.oxerr.youzan.service;
 
 import java.util.Map;
 
-import org.oxerr.youzan.dto.GoodsDetail;
+import org.oxerr.youzan.dto.item.GoodsDetail;
 
 public final class ParamsAdapter {
 
