@@ -12,8 +12,11 @@
 		Client for <a href="https://www.youzan.com">Youzan</a>.
 	]]></description>
 	<modules>
+		<module>youzan-client-core</module>
 		<module>youzan-client-dto</module>
 		<module>youzan-client-service</module>
+		<module>youzan-client-weixin-auth</module>
+		<module>youzan-client-spring-boot</module>
 	</modules>
 	<url>https://oxerr.org/youzan-client</url>
 	<inceptionYear>2016</inceptionYear>
@@ -195,6 +198,16 @@
 				<groupId>org.apache.httpcomponents</groupId>
 				<artifactId>httpmime</artifactId>
 				<version>4.5.2</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot</artifactId>
+				<version>1.3.5.RELEASE</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-configuration-processor</artifactId>
+				<version>1.3.5.RELEASE</version>
 			</dependency>
 			<dependency>
 				<groupId>com.fasterxml.jackson.core</groupId>

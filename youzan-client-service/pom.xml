@@ -35,6 +35,11 @@
 		</dependency>
 		<dependency>
 			<groupId>${project.groupId}</groupId>
+			<artifactId>youzan-client-core</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
 			<artifactId>youzan-client-dto</artifactId>
 			<version>${project.version}</version>
 		</dependency>
