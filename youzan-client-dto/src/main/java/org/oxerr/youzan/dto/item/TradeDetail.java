@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.Instant;
 
+import org.apache.commons.lang3.StringEscapeUtils;
 import org.oxerr.youzan.dto.deserializer.InstantDeserializer;
 import org.oxerr.youzan.dto.ump.UmpTradeCoupon;
 
@@ -714,7 +715,7 @@ public class TradeDetail implements Serializable {
 	}
 
 	public void setTitle(String title) {
-		this.title = title;
+		this.title = StringEscapeUtils.unescapeHtml4(title);
 	}
 
 	public BigDecimal getDiscountFee() {

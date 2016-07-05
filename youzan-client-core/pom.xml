@@ -10,4 +10,5 @@
 	</parent>
 	<artifactId>youzan-client-core</artifactId>
 	<name>Youzan Client Core</name>
+	<description>Youzan Client Core</description>
 </project>

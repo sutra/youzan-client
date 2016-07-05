@@ -3,6 +3,8 @@ package org.oxerr.youzan.dto.item;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
+import org.apache.commons.lang3.StringEscapeUtils;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
@@ -277,7 +279,7 @@ public class TradeOrder implements Serializable {
 	}
 
 	public void setTitle(String title) {
-		this.title = title;
+		this.title = StringEscapeUtils.unescapeHtml4(title);
 	}
 
 	public BigDecimal getFenxiaoPayment() {

@@ -5,6 +5,7 @@ import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.Map;
 
+import org.apache.commons.lang3.StringEscapeUtils;
 import org.oxerr.youzan.dto.deserializer.EpochSecondStringDeserializer;
 import org.oxerr.youzan.dto.deserializer.InstantDeserializer;
 
@@ -485,7 +486,7 @@ public class GoodsDetail implements Serializable {
 	}
 
 	public void setTitle(String title) {
-		this.title = title;
+		this.title = StringEscapeUtils.unescapeHtml4(title);
 	}
 
 	public String getOuterId() {
