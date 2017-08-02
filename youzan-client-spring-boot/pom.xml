@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>org.oxerr</groupId>
 		<artifactId>youzan-client</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+		<version>0.0.1</version>
 	</parent>
 	<artifactId>youzan-client-spring-boot</artifactId>
 	<name>Youzan Client Spring Boot</name>
