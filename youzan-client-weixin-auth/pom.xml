@@ -1,0 +1,23 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+		http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.oxerr</groupId>
+		<artifactId>youzan-client</artifactId>
+		<version>0.0.1</version>
+	</parent>
+	<artifactId>youzan-client-weixin-auth</artifactId>
+	<name>Youzan Client Weixin Auth</name>
+	<description><![CDATA[
+		<a href="http://open.youzan.com/doc#61">网页授权获取微信粉丝基本信息</a>.
+	]]></description>
+	<dependencies>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>youzan-client-core</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+	</dependencies>
+</project>

@@ -5,17 +5,25 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.oxerr</groupId>
 	<artifactId>youzan-client</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
+	<packaging>pom</packaging>
 	<name>Youzan Client</name>
 	<description><![CDATA[
 		Client for <a href="https://www.youzan.com">Youzan</a>.
 	]]></description>
+	<modules>
+		<module>youzan-client-core</module>
+		<module>youzan-client-dto</module>
+		<module>youzan-client-service</module>
+		<module>youzan-client-weixin-auth</module>
+		<module>youzan-client-spring-boot</module>
+	</modules>
 	<url>https://oxerr.org/youzan-client</url>
 	<inceptionYear>2016</inceptionYear>
 	<licenses>
 		<license>
 			<name>The BSD 2-Clause License</name>
-			<url>http://opensource.org/licenses/bsd-license.php</url>
+			<url>https://opensource.org/licenses/bsd-license.php</url>
 		</license>
 	</licenses>
 	<developers>
@@ -84,7 +92,7 @@
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-javadoc-plugin</artifactId>
-					<version>2.10.3</version>
+					<version>2.10.4</version>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
@@ -164,10 +172,12 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-report-plugin</artifactId>
 			</plugin>
+			<!--
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>cobertura-maven-plugin</artifactId>
 			</plugin>
+			-->
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>findbugs-maven-plugin</artifactId>
@@ -192,8 +202,23 @@
 				<version>4.5.2</version>
 			</dependency>
 			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot</artifactId>
+				<version>1.3.5.RELEASE</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-configuration-processor</artifactId>
+				<version>1.3.5.RELEASE</version>
+			</dependency>
+			<dependency>
 				<groupId>com.fasterxml.jackson.core</groupId>
 				<artifactId>jackson-annotations</artifactId>
+				<version>2.7.5</version>
+			</dependency>
+			<dependency>
+				<groupId>com.fasterxml.jackson.core</groupId>
+				<artifactId>jackson-core</artifactId>
 				<version>2.7.5</version>
 			</dependency>
 			<dependency>
@@ -218,37 +243,6 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
-	<dependencies>
-		<dependency>
-			<groupId>org.apache.httpcomponents</groupId>
-			<artifactId>httpclient</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.httpcomponents</groupId>
-			<artifactId>httpmime</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-annotations</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.fasterxml.jackson.datatype</groupId>
-			<artifactId>jackson-datatype-jsr310</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-databind</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.google.code.findbugs</groupId>
-			<artifactId>jsr305</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<scope>test</scope>
-		</dependency>
-	</dependencies>
 	<scm>
 		<connection>scm:git:git@github.com:sutra/youzan-client.git</connection>
 		<developerConnection>scm:git:git@github.com:sutra/youzan-client.git</developerConnection>
